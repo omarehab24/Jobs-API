@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Jobs-api
+  title: Jobs-API
   contact: {}
   version: '1.0'
 servers:
@@ -22,10 +22,10 @@ paths:
               allOf:
               - $ref: '#/components/schemas/LoginRequest'
               - example:
-                  email: omar1@gmail.com
+                  email: user@gmail.com
                   password: '123456'
             example:
-              email: omar1@gmail.com
+              email: user@gmail.com
               password: '123456'
         required: true
       responses:
@@ -49,12 +49,12 @@ paths:
               allOf:
               - $ref: '#/components/schemas/RegisterRequest'
               - example:
-                  name: omar
-                  email: omar3@gmail.com
+                  name: username
+                  email: user@gmail.com
                   password: '123456'
             example:
-              name: omar
-              email: omar3@gmail.com
+              name: username
+              email: user@gmail.com
               password: '123456'
         required: true
       responses:
@@ -67,7 +67,7 @@ paths:
     post:
       tags:
       - Job
-      summary: Create Job
+      summary: Create a job
       operationId: CreateJob
       parameters: []
       requestBody:
@@ -79,10 +79,10 @@ paths:
               - $ref: '#/components/schemas/CreateJobRequest'
               - example:
                   company: netflix
-                  position: frontend developer
+                  position: intern
             example:
               company: netflix
-              position: frontend developer
+              position: intern
         required: true
       responses:
         '200':
@@ -115,7 +115,7 @@ paths:
     get:
       tags:
       - Job
-      summary: Get single job
+      summary: Get a job
       operationId: GetJob
       parameters: []
       responses:
@@ -152,11 +152,11 @@ paths:
               allOf:
               - $ref: '#/components/schemas/UpdateJobRequest'
               - example:
-                  position: Junior Developer
-                  company: Google
+                  company: netflix
+                  position: back-end developer
             example:
-              position: Junior Developer
-              company: Google
+              company: netflix
+              position: back-end developer
         required: true
       responses:
         '200':
@@ -179,7 +179,7 @@ components:
         password:
           type: string
       example:
-        email: omar1@gmail.com
+        email: user@gmail.com
         password: '123456'
     RegisterRequest:
       title: RegisterRequest
@@ -196,8 +196,8 @@ components:
         password:
           type: string
       example:
-        name: omar
-        email: omar3@gmail.com
+        name: username
+        email: user@gmail.com
         password: '123456'
     CreateJobRequest:
       title: CreateJobRequest
@@ -212,9 +212,9 @@ components:
           type: string
       example:
         company: netflix
-        position: frontend developer
-    UpdateajobRequest:
-      title: UpdateajobRequest
+        position: intern
+    UpdateJobRequest:
+      title: UpdateJobRequest
       required:
       - position
       - company
@@ -225,8 +225,8 @@ components:
         company:
           type: string
       example:
-        position: Junior Developer
-        company: Google
+        company: netflix
+        position: back-end developer
   securitySchemes:
     bearer:
       type: http
